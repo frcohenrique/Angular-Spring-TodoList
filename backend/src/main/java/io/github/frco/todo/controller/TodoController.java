@@ -1,4 +1,4 @@
-package io.github.frco.todo.rest;
+package io.github.frco.todo.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
