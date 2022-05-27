@@ -27,7 +27,17 @@ export class AppComponent implements OnInit{
       this.todos.push(savedTodo)
     )}
 
+  listTodos(){
+    this.service.listAll().subscribe(todoList => this.todos = todoList)
+  }
+  
+  delete(todo: Todo){
+    this.service.delete(todo.id).subscribe({
+      next: (response) => this.listTodos()
+    })
+  }
+
     ngOnInit(): void {
-      this.service.listAll().subscribe(todoList => this.todos = todoList)
+      this.listTodos()
     }
 }

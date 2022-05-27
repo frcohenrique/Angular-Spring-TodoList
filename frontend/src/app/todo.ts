@@ -1,5 +1,5 @@
 export class Todo {
-    id?: number;
+    id: number;
     description: string;
     done?: boolean;
     createdAt?: string;
@@ -7,5 +7,6 @@ export class Todo {
 
     constructor(){
         this.description = '';
+        this.id = 1;
     }
 }

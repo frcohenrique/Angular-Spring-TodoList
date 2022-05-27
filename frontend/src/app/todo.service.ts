@@ -20,4 +20,9 @@ export class TodoService {
   listAll() : Observable<Todo[]> {
     return this.http.get<Todo[]>(this.apiURL);
   }
+
+  delete(id: number) : Observable<void>{
+    const url = `${this.apiURL}/${id}`
+    return this.http.delete<void>(url);
+  } 
 }
