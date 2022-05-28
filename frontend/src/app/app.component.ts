@@ -17,9 +17,8 @@ export class AppComponent implements OnInit{
   })
 
   constructor(
-    private service: TodoService
+    private service: TodoService,
   ){}
-
   submit(){
     console.log(this.form.value)
     const todo: Todo = { ...this.form.value }
@@ -34,6 +33,15 @@ export class AppComponent implements OnInit{
   delete(todo: Todo){
     this.service.delete(todo.id).subscribe({
       next: (response) => this.listTodos()
+    })
+  }
+
+  done(todo:Todo){
+    this.service.markAsDone(todo.id).subscribe({
+      next: (response) => {
+        todo.done = response.done
+        todo.endedAt = response.endedAt
+      }
     })
   }
 

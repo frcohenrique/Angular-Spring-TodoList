@@ -24,5 +24,10 @@ export class TodoService {
   delete(id: number) : Observable<void>{
     const url = `${this.apiURL}/${id}`
     return this.http.delete<void>(url);
-  } 
+  }
+
+  markAsDone(id: number) : Observable<Todo>{
+    const url = `${this.apiURL}/${id}/done`;
+    return this.http.patch<Todo>(url, {});
+  }
 }
